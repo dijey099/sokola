@@ -1,8 +1,0 @@
-version: '3'
-
-services:
-  web:
-    image: 172.16.130.83:5000/sokola
-    build: .
-    ports:
-      - "8000:80"
