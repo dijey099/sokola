@@ -12,13 +12,17 @@ phases:
     commands:
       - echo Logging in to Docker Hub...
       - docker login -u $DOCKER_HUB_USERNAME -p $DOCKER_HUB_PASSWORD
+      - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
+      - IMAGE_TAG=${COMMIT_HASH:=latest}
 
   build:
     commands:
       - echo Building Docker image...
-      - docker build -t dijey099/sokola:$CODEBUILD_RESOLVED_SOURCE_VERSION .
+      - docker build -t dijey099/sokola:latest .
+      - docker tag dijey099/sokola:latest dijey099/sokola:$IMAGE_TAG
 
   post_build:
     commands:
       - echo Pushing Docker image to Docker Hub...
-      - docker push dijey099/sokola:$CODEBUILD_RESOLVED_SOURCE_VERSION
+      - docker push dijey099/sokola:latest
+      - docker push dijey099/sokola:$IMAGE_TAG
