@@ -3,6 +3,11 @@ version: 0.2
 phases:
   pre_build:
     commands:
+      - echo We are on $(uname -a)
+      - echo Installing docker...
+      - yum update
+      - yum install -y docker
+      - systemctl start docker
       - echo Logging in to Docker Hub...
       - docker login -u $DOCKER_HUB_USERNAME -p $DOCKER_HUB_PASSWORD
 
