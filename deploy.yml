@@ -14,9 +14,9 @@ spec:
     spec:
       containers:
         - name: sokola-container
-          image: dijey099/sokola
+          image: dijey099/sokola:latest
           ports:
-            - containerPort: 8080
+            - containerPort: 80
 ---
 apiVersion: v1
 kind: Service
@@ -28,5 +28,5 @@ spec:
   ports:
     - protocol: TCP
       port: 80
-      targetPort: 8080
+      targetPort: 80
   type: LoadBalancer
