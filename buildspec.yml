@@ -4,8 +4,9 @@ phases:
   install:
     commands:
       - echo Installing Docker...
-      - curl -fsSL https://get.docker.com -o get-docker.sh
-      - sh get-docker.sh
+      - apt update
+      - apt install -y docker.io
+      - systemctl enable --now docker
   pre_build:
     commands:
       - echo Logging in to Docker Hub...
