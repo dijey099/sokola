@@ -1,0 +1,24 @@
+#welcome {
+	font-size: 15px;
+}
+
+#contenue_principale {
+	margin: 0;
+	padding: 0;
+	width: 60%%;
+	border-top: 3px solid #6b3d91;
+	border-bottom: 3px solid #6b3d91;
+}
+
+.logo_monitoring {
+	width: 25px;
+	height: 25px;
+}
+
+td {
+	font-size: 17px;
+}
+
+footer {
+	margin: 0;
+}

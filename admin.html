@@ -1,0 +1,114 @@
+<!--
+
+    Copyrights Nexthope 2022
+
+    Coded by Dijey (RAZAFIMAHATRATRA Lionnel)
+    Stagiaire Nexthope Sept-Dec 2022
+
+-->
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Sokola - Admin</title>
+        <link href="static/style/style.css" rel="stylesheet" type="text/css" />
+        <link rel="shortcut icon" href="static/img/logo.png"/>
+
+        <link rel="stylesheet" type="text/css" media="screen and (max-width: 1300px)" href="static/style/tablet.css">
+        <link rel="stylesheet" type="text/css" media="screen and (max-width: 600px)" href="static/style/phone.css">
+    </head>
+
+    <body>
+
+        <div class="welcome_img" align="center">
+            <img src="static/img/logo-title.png" class="welcome_imgs" alt="Sokola Logo" />
+        </div>
+
+        <div align="center">
+            <div id="welcome">
+                <h1 align="center">Tongasoa ianao Tompon'andraikitra</h1>
+            </div>      
+            <div class="contenue_principale" id="contenue_principale">
+                <form action="/add" method="post">
+                    <p>Anarana sokola: <input type="text" name="sokola-name" required /> <input type="submit" value="Alefa" class="act-btn" /></p>
+                    <p><i>{{ message }}</i></p>
+                </form>
+                <div class="table-container">
+                    <table>
+                        <tr>
+                            <th>ID</th>
+                            <th>Anarana</th>
+                            <th>Asa</th>
+                        </tr>
+                        {% for sokola in sokola_names %}
+                        <tr>
+                            <td>{{ sokola[0] }}</td>
+                            <td>{{ sokola[1] }}</td>
+                            <td>
+                                <button class="act-btn" onclick="deleteRow({{ sokola[0] }})">Delete</button> 
+                                <button class="act-btn" onclick="editRow({{ sokola[0] }}, '{{ sokola[1] }}')">Update</button>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            async function deleteRow(id) {
+                const url = `http://192.168.1.106/delete?id=${id}`;
+
+                try {
+                    const response = await fetch(url, {
+                        method: 'POST'
+                    });
+                    if (response.status === 200) {
+                        alert("voafafa")
+                        location.reload();
+                    } else {
+                        alert("Tsy voafafa")
+                    }
+
+                } catch (error) {
+                    console.error('Error deleting row:', error);
+                    alert("Tsy voafafa fa nisy olana");
+                }
+            }
+
+            async function editRow(id, name) {
+                var newName = prompt("Anarana vaovao:", name);
+                const url = `http://192.168.1.106/update?id=${id}&name=${newName}`;
+
+                try {
+                    const response = await fetch(url, {
+                        method: 'POST'
+                    });
+
+                    if (response.status === 200) {
+                        alert("Vitaaa!");
+                        location.reload();
+                    } else {
+                        alert("Tsy tafa");
+                    }
+                } catch (error) {
+                    console.error('Error updating row:', error);
+                    alert("Tsy tafa fa nisy olana");
+                }
+            }
+        </script>
+    </body>
+    <footer style="position: relative;">
+  <div style="position: absolute; top: 0; left: 50%; transform: translateX(-50%);">
+    <img id="nxt-10" src="static/img/footer.png">
+  </div>
+  <div style="text-align: center; position: relative; color: white; padding: 10px;">
+    <p>Copyrights 2023 | Dijey</p>
+    <a href="https://fb.me/d1j3y"><img src="static/img/fb.png" alt="Logo Facebook" title="Dijey Facebook" width="50" height="50" /></a><br>
+    <img src="static/img/foot.png" alt="NextHope Facebook page" title="sary sokola" width="300" height="250" />
+  </div>
+</footer>
+
+</html>
+

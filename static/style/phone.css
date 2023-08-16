@@ -1,0 +1,29 @@
+#welcome {
+	font-size: 10px;
+}
+
+#contenue_principale {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	border-top: 1px solid #6b3d91;
+	border-bottom: 1px solid #6b3d91;
+}
+
+.logo_monitoring {
+	width: 20px;
+	height: 20px;
+}
+
+td {
+	font-size: 15px;
+}
+
+#nxt-10 {
+	width: 100%;
+	height: auto;
+}
+
+footer {
+	margin: 0;
+}
