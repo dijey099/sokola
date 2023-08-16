@@ -8,7 +8,7 @@
 -->
 
 <!DOCTYPE html>
-<html>
+<html lang="mg">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>Sokola</title>
@@ -32,14 +32,15 @@
 			</div>	    
 			<div class="contenue_principale" id="contenue_principale">
 		        <table summary="Sokola List">
-		        	<!-- READ THIS -->
-		        	<!-- EACH TABLE ROW (TR) SHOULD HAVE 2 TABLE DATA (TD) -->
+		        	<tr>
+						    <th scope="col">Sokola</th>
+						    <th scope="col">Malagasy</th>
+						  </tr>
               {% for sokola in sokola_names %}
               <tr>
                   <td><img src="static/img/chocolate.png" class="logo_monitoring" alt="Photo sokola" /> {{ sokola[0] }}</td>
                   <td><img src="static/img/chocolate.png" class="logo_monitoring" alt="Photo sokola" /> {{ sokola[1] }}</td>
               {% endfor %}
-		        	<!-- EACH TABLE ROW (TR) SHOULD HAVE ON 2 TABLE DATA (TD) -->
 		        </table>
 			</div>
 		</div>
