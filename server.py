@@ -90,9 +90,9 @@ def delete():
 @app.route('/update', methods=['POST'])
 def update():
     ID = request.args['id']
-    newName = request.args['name']
+    new_name = request.args['name']
     
-    query = f"UPDATE sokola SET NAME='{newName}' WHERE ID={ID}"
+    query = f"UPDATE sokola SET NAME='{new_name}' WHERE ID={ID}"
     r = write_query([query])
     if r == None:
         return make_response({'code': 400}, 400)
