@@ -58,7 +58,7 @@
 
         <script>
             async function deleteRow(id) {
-                const url = `http://192.168.1.106/delete?id=${id}`;
+                const url = `https://sokola-mada.duckdns.org/delete?id=${id}`;
 
                 try {
                     const response = await fetch(url, {
@@ -79,7 +79,7 @@
 
             async function editRow(id, name) {
                 var newName = prompt("Anarana vaovao:", name);
-                const url = `http://192.168.1.106/update?id=${id}&name=${newName}`;
+                const url = `https://sokola-mada.duckdns.org/update?id=${id}&name=${newName}`;
 
                 try {
                     const response = await fetch(url, {

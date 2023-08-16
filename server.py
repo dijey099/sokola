@@ -1,8 +1,10 @@
 from flask import Flask, render_template, request, make_response
+from flask_wtf.csrf import CSRFProtect
 import requests
 
 app = Flask(__name__, template_folder='.', static_folder='./static')
-app.config['WTF_CSRF_ENABLED'] = False
+csrf = CSRFProtect()
+csrf.init_app(app)
 
 db_url = 'https://db-sokola.duckdns.org'
 
