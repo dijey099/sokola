@@ -2,8 +2,9 @@ from flask import Flask, render_template, request, make_response
 import requests
 
 app = Flask(__name__, template_folder='.', static_folder='./static')
+app.config['WTF_CSRF_ENABLED'] = False
 
-db_url = 'http://192.168.1.106:4001'
+db_url = 'https://db-sokola.duckdns.org'
 
 
 def execute_query(query):
