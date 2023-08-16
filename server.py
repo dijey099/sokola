@@ -38,7 +38,6 @@ def web():
     rows = results['results'][0]['rows']
     name_pairs = []
 
-    # Iterate over the rows in pairs
     for i in range(0, len(rows), 2):
         if i + 1 < len(rows):
             pair = (rows[i]['NAME'], rows[i + 1]['NAME'])
@@ -59,7 +58,6 @@ def admin():
         names = [(item['ID'], item['NAME']) for item in results['results'][0]['rows']]
 
     return render_template('admin.html', message="", sokola_names=names)
-    # return render_template('admin.html', message="")
 
 
 @app.route('/add', methods=['POST'])
